@@ -1,7 +1,16 @@
+import BlogList from "./BlogList";
+import useFetch from "./useFetch";
+
 const Home = () => {
+
+    const {data, loading , error} = useFetch('http://localhost:8000/blogs')
+  
     return ( 
         <div className="home">
-            <h1>Home</h1>
+            {/* {loading ? <div>loading...</div>:''} */}
+            {loading && <div>loading...</div>}
+            {data && <BlogList blogs={data} title="All blogs" ></BlogList>}
+            {error && <div>{error.message}</div>}
         </div>
      );
 }
