@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 const Create = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [author, setAuthor] = useState('mario');
+  const [author, setAuthor] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory()
 
@@ -14,7 +14,7 @@ const Create = () => {
     setLoading(true)
     const blog = {title, body, author}
 
-    fetch('http://localhost:8000/blogs', {
+    fetch('/blogs', {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
       body:JSON.stringify(blog)

@@ -6,11 +6,11 @@ import useFetch from "./useFetch";
 const BlogDetails = () => {
 
     const { id } = useParams()
-    const {data, error, isPending } = useFetch(('http://localhost:8000/blogs/'+ id))
+    const {data, error, isPending } = useFetch(('/blogs/'+ id))
     const history = useHistory()
 
     const handleDelete = ()=>{
-        fetch('http://localhost:8000/blogs/'+ id, {
+        fetch('/blogs/'+ id, {
             method: 'DELETE'
         }).then(()=>{
             history.push('/')
